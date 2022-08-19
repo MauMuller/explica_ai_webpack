@@ -1,6 +1,15 @@
 const path = require("path");
 
 module.exports = {
+  //Entry
+  entry: "./src/index.js",
+
+  //Output
+  output: {
+    filename: "main.js",
+    path: path.resolve(__dirname, "dist"),
+  },
+
   //Babel
   module: {
     rules: [
@@ -9,11 +18,5 @@ module.exports = {
         use: ["babel-loader"],
       },
     ],
-  },
-
-  devServer: {
-    contentBase: path.join(__dirname, "dist"),
-    watchContentBase: true,
-    liveReload: true,
   },
 };
