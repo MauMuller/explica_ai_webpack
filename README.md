@@ -4,7 +4,7 @@
 
 # Preview dos assuntos
 
-Hoje falaremos sobre **Webpack**, um assunto muito importante e daora de ser tratado entre os Dev's. Aqui, mostrarei o por que você deveria usar essa ferramenta e quais usos esse empacotador de arquivos pode no seu dia a dia assim como trás para as técnologias mais famosas do momento.
+Hoje falaremos sobre **Webpack**, um assunto muito importante e daora de ser tratado entre os Dev's. Aqui, mostrarei o por que você deveria usar essa ferramenta e quais usos esse empacotador de arquivos pode ter no seu dia a dia e mostrar quais ferramentas já utilizam e você provalvelmente não sabia.
 
 ## Arquivos para Configuração
 
