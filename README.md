@@ -2,9 +2,9 @@
   <img src="https://user-images.githubusercontent.com/82516932/185523194-471d4bcd-9463-47eb-a896-d4774f161f07.svg" width="800">
 </div>
 
-# explica_ai_webpack
+# Preview dos assuntos
 
-| ARTIGO | Caiu de paraquedas no Webpack e não faz ideia do que seja isso? Só vem comigo e deixa que eu te explico!
+Hoje falaremos sobre **Webpack**, um assunto muito importante e daora de ser tratado entre os Dev's. Aqui, mostrarei o por que você deveria usar essa ferramenta e quais usos esse empacotador de arquivos pode no seu dia a dia assim como trás para as técnologias mais famosas do momento.
 
 ## Arquivos para Configuração
 
