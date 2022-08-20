@@ -2,16 +2,43 @@
   <img src="https://user-images.githubusercontent.com/82516932/185523194-471d4bcd-9463-47eb-a896-d4774f161f07.svg" width="800">
 </div>
 
-# Preview dos assuntos
+<br><br>
 
-Hoje falaremos sobre **Webpack**, um assunto muito importante e daora de ser tratado entre os Dev's. Aqui, mostrarei o por que você deveria usar essa ferramenta e quais usos esse empacotador de arquivos pode ter no seu dia a dia e mostrar quais ferramentas já utilizam e você provalvelmente não sabia.
+<div align="left">
+  <img src="https://user-images.githubusercontent.com/82516932/185759115-243e5619-9fec-4fd3-b576-734775b57f4c.svg" width="800">
+  <p align="justify">
+    Hoje falaremos sobre <strong>Webpack</strong>, um assunto muito importante e daora de ser tratado entre os Dev's. Aqui, mostrarei o por que você deveria usar essa ferramenta e quais usos esse empacotador de arquivos pode ter no seu dia a dia. Também vou mostrar quais tecnologias já a utilizam e você provalvelmente não sabia.
+  </p>
+</div>
 
-## Arquivos para Configuração
+<br>
 
-> PACKEAGE.JSON
+<div align="left">
+    <img src="https://user-images.githubusercontent.com/82516932/185759801-a12dee7e-88c9-49f1-a2f4-c11dd14eddc8.svg" width="800">
 
-Dentro do package JSON
+<!-- ```HTML
+  <div></div>
+``` -->
 
-## Inspiração e Fontes para a públicação do artigo!
+</div>
 
-Web Dev Drops: https://www.webdevdrops.com/webpack-sem-medo-parte-2-loaders-1d1239df3945/
+<br>
+
+<div align="left">
+    <img src="https://user-images.githubusercontent.com/82516932/185759904-f738ecff-9a00-40fe-8694-6e0ca0e52c0c.svg" width="800">
+</div>
+
+<br>
+
+<div align="left">
+    <img src="https://user-images.githubusercontent.com/82516932/185760103-42c80151-8bc4-4488-88b7-81360bfad2df.svg" width="800">
+</div>
+
+<br>
+
+<div align="left">
+    <img src="https://user-images.githubusercontent.com/82516932/185760260-92710eef-ae41-449e-a023-9f10b6011b13.svg" width="800">
+    <p align="justify">
+      - Web Dev Drops: https://www.webdevdrops.com/webpack-sem-medo-parte-2-loaders-1d1239df3945/
+    </p>
+</div>
