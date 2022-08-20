@@ -15,11 +15,23 @@
 
 <div align="left">
     <img src="https://user-images.githubusercontent.com/82516932/185759801-a12dee7e-88c9-49f1-a2f4-c11dd14eddc8.svg" width="800">
+  <p align="justify">
+    O webpack é um <strong>empacotador de módulos para javascript</strong>, ou seja, ele junta arquivos JS ou outros formatos, assim como bibliotecas, frameworks, pré-processaores em um <strong>único arquivo só</strong>. Tudo isso com diferentes formas trabalhar <strong>(Produção e Desenvolvimento)</strong> e sem duplicar arquivos, tudo na ordem certa como o menor tamanho possível para o deploy.
+  </p>
 
-<!-- ```HTML
-  <div></div>
-``` -->
+  <p align="justify">
+    No geral, essa ferramenta consegue fazer algumas coisas bem legais com arquivos que trabalhamos diariamente, porém, levando as <strong>"boas práticas" a outro nível</strong>. Aqui temos algumas coissas que é possível fazer:
+  </p>
 
+  <ul>
+    <li>Javascript com: <strong>ES6+, JSX, Typescript e Babel;</strong></li>
+    <li>Outros formatos de arquivos como: <strong>CSS, SASS, LESS, Styles Componentes, SVG, PNG, JPG</strong> e outros...</li>
+  </ul>
+
+  <h3>Funcionamento</h3>
+  <p align="justify">
+    
+  </p>
 </div>
 
 <br>
