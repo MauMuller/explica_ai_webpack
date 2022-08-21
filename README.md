@@ -30,7 +30,49 @@
 
   <h3>Funcionamento</h3>
   <p align="justify">
-    
+    Essa ferramenta funciona a partir de <strong>"Módulos"</strong>, para quem já está acostumado com ES6+ deve saber como funciona os <strong>import/exports</strong> porém para quem não sabe, vou fazer um overview abaixo.
+    <ul>
+      <li><strong>ES Modules</strong>:</li>
+      <p align="justify">
+        Os "Imports/Exports" funcionam para acessar determinadas funções, objetos, array, classes ou variaveis de outro arquivo. Ou seja, o "import" recebe a partir do diretório e o "export" envia. 
+      </p>
+      <p align="justify">
+        Aqui vou mostrar um pequeno exemplo do funcionamento:
+      </p>
+
+```JS
+  //PessoaFisica.js
+  export default class PessoaFisica{
+    constructor(nome, idade, trabalho){
+      this.nome = nome;
+      this.idade = idade;
+      this.trabalho = trabalho;
+    }
+  }
+```
+
+```JS
+  //index.js
+  import PessoaFisica from "./models/PessoaFisica.js";
+
+  const pessoaFisica = new PessoaFisica('José', 24, 'Programador');
+```
+
+  <p>
+      É possivel entender com o exemplo que a classe foi exportada para dentro do "index.js", isso é o que chamamos de módulo, lembrando que cada módulo possui seu próprio escopo.
+    </p>
+      <li><strong>Conceitos Fundamentais do Webpack</strong>:</li>
+      <p align="justify">
+        No geral, essa ferramenta possui 4 conceitos fundamentais: <strong> Entry Point, Output Point, Loaders e plugins</strong>.
+      </p>
+      <ul>
+        <li>
+          <h5>Entry Point (Ponto de Entrada)</h5>
+          <p>
+          </p>
+        </li>
+      </ul>
+    </ul>
   </p>
 </div>
 
