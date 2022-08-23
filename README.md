@@ -14,6 +14,16 @@
 <br>
 
 <div align="left">
+  <img src="https://user-images.githubusercontent.com/82516932/186055317-417eb956-94ba-4889-b929-fbe141835f2f.svg" width="800">
+  <ul>
+    <li><strong><a href="#doQueSeTrata">Do que se trata?</a></strong></li>
+    <li><strong><a href="#comoInstalo">Como instalo?</a></strong></li>
+  </ul>
+</div>
+
+<br>
+
+<div align="left" id="doQueSeTrata">
     <img src="https://user-images.githubusercontent.com/82516932/185759801-a12dee7e-88c9-49f1-a2f4-c11dd14eddc8.svg" width="800">
   <p align="justify">
     O webpack é um <strong>empacotador de módulos para javascript</strong>, ou seja, ele junta arquivos JS ou outros formatos, assim como bibliotecas, frameworks, pré-processaores em um <strong>único arquivo só</strong>. Tudo isso com diferentes formas trabalhar <strong>(Produção e Desenvolvimento)</strong> e sem duplicar arquivos, tudo na ordem certa como o menor tamanho possível para o deploy.
@@ -117,7 +127,7 @@
 
 <br>
 
-<div align="left">
+<div align="left" id="comoInstalo">
     <img src="https://user-images.githubusercontent.com/82516932/185759904-f738ecff-9a00-40fe-8694-6e0ca0e52c0c.svg" width="800">
 </div>
 
