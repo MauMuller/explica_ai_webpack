@@ -13,7 +13,7 @@
 
 <br>
 
-<div align="left">
+<div align="left" style="position:sticky; top:0; background-color:#000">
   <img src="https://user-images.githubusercontent.com/82516932/186055317-417eb956-94ba-4889-b929-fbe141835f2f.svg" width="800">
   <ul>
     <li><strong><a href="#doQueSeTrata">Do que se trata?</a></strong></li>
@@ -110,13 +110,42 @@
           </p>
           <br>
           <p align="justify">
-            Esses plugins serão compilados e transformados em arquivos que o webpack entenda, realizando assim, a ideia inicial de poder unificar arquivos. Ainda é possível fazer algo bem interessante com esses plugins, transpilar diferentes arquivos .js para o ES6+, como o caso do Typescript.
+            Esses loaders serão compilados e transformados em arquivos que o webpack entenda, realizando assim, a ideia inicial de poder unificar arquivos. No geral, eles trabalham juntamente com os plugins, gerando assim inumeras possíbilidades para o desenvolvimento da aplicação.
           </p>
           <br>
           <p align="justify">
-            E é possivel fazer algo mais legal ainda, transpilar todo o nosso código ES6+ para ES5, com todos os recursos atuais funcionando 100%.
+            No geral, podemos separar os loaders em subcategorias:
           </p>
-        </li>
+          <ul align="justify">
+            <li>Arquivos (.jpg, .png...)</li>
+            <li>Transpiling (ES5, .jsx, .vue, .ts...)</li>
+            <li>Styling (.css, .scss...)</li>
+          </ul>
+          <h3>EXEMPLO</h3>
+          <p align="justify">
+            Usaremos os determinados loaders nesse exemplo:
+          </p>
+          <ul>
+            <li>
+              Arquivos: <strong>"url-loader"</strong>, <strong>"file-loader"</strong>;
+            </li>
+            <li>
+              Transpiling: <strong>"babel-loader"</strong>;
+            </li>
+            <li>
+              Styling: <strong>"style-loader"</strong>, <strong>"css-loader"</strong>.
+            </li>
+          </ul>
+          <br>
+          <p align="justify">
+            Instalação:
+          </p>
+
+```SHELL
+  npm i -D webpack webpack-cli @babel/core @babel/preset-env babel-loader
+```
+
+  </li>
         <li>
           <h5>Plugins</h5>
         </li>
@@ -140,14 +169,13 @@
 <br>
 
 <div align="left">
-    <img src="https://user-images.githubusercontent.com/82516932/186052090-6f33de4d-6a4e-4990-b360-bd868e898d40.svg" width="800">
-</div>
-
-<br>
-
-<div align="left">
     <img src="https://user-images.githubusercontent.com/82516932/185760260-92710eef-ae41-449e-a023-9f10b6011b13.svg" width="800">
-    <p align="justify">
-      - Web Dev Drops: https://www.webdevdrops.com/webpack-sem-medo-parte-2-loaders-1d1239df3945/
-    </p>
+    <ul>
+      <li>
+        <strong>Web Dev Drops:</strong> <u>https://www.webdevdrops.com/webpack-sem-medo-parte-2-loaders-1d1239df3945/</u>
+      </li>
+      <li>
+        <strong>Blog Fellyph:</strong> <u>https://blog.fellyph.com.br/javascript/introducao-webpack-parte-2-loaders/</u>
+      </li>
+    </ul>
 </div>
