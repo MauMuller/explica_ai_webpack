@@ -13,10 +13,35 @@
 
 <br>
 
-<div align="left" style="position:sticky; top:0; background-color:#000">
+<div align="left" >
   <img src="https://user-images.githubusercontent.com/82516932/186055317-417eb956-94ba-4889-b929-fbe141835f2f.svg" width="800">
   <ul>
-    <li><strong><a href="#doQueSeTrata">Do que se trata?</a></strong></li>
+    <li>
+      <strong><a href="#doQueSeTrata">Do que se trata?</a></strong>
+      <ul>
+        <li>
+            <strong><a href="#esModules">ES Modules</a></strong>
+        </li> 
+        <li>
+          <i>Conceitos Fundamentais do Webpack</i>  
+          <ul>
+            <li>
+              <strong><a href="#pontoDeEntrada">Ponto de Entrada</a></strong>
+            </li>
+            <li>
+              <strong><a href="#pontoDeSaida">Ponto de Saída</a></strong>
+            </li>
+            <li>
+              <strong><a href="#loaders">Loaders</a></strong>
+            </li>
+            <li>
+              <strong><a href="#plugins">Plugins</a></strong>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <br>
     <li><strong><a href="#comoInstalo">Como instalo?</a></strong></li>
   </ul>
 </div>
@@ -42,7 +67,7 @@
   <p align="justify">
     Essa ferramenta funciona a partir de <strong>"Módulos"</strong>, para quem já está acostumado com ES6+ deve saber como funciona os <strong>import/exports</strong> porém para quem não sabe, vou fazer um overview abaixo.
     <ul>
-      <li><strong>ES Modules</strong>:</li>
+      <li id="esModules"><strong>ES Modules</strong>:</li>
       <p align="justify">
         Os "Imports/Exports" funcionam para acessar determinadas funções, objetos, array, classes ou variaveis de outro arquivo. Ou seja, o "import" recebe a partir do diretório e o "export" envia. 
       </p>
@@ -76,7 +101,7 @@
         No geral, essa ferramenta possui 4 conceitos fundamentais: <strong> Entry Point, Output Point, Loaders e Plugins</strong>.
       </p>
       <ul>
-        <li>
+        <li id="pontoDeEntrada">
           <h5>Entry Point (Ponto de Entrada)</h5>
           <img src="https://user-images.githubusercontent.com/82516932/186042900-0b4d9134-e096-4374-94cb-11a60c3123e9.svg">
           <p align="justify">
@@ -87,7 +112,7 @@
             É importante ressaltar que é possível ter vários arquivos como ponto de entrada assim como é possível trocar o nome de todos esses arquivos normalmente, o <strong>index.js é apenas uma convenção</strong>.
           </p>
         </li>
-        <li>
+        <li id="pontoDeSaida">
           <h5>Output Point (Ponto de Saída)</h5>
           <img src="https://user-images.githubusercontent.com/82516932/186043701-302e76c0-a13b-48b3-958c-5fbfe1ea2131.svg">
           <p align="justify">
@@ -102,7 +127,7 @@
             E assim como o Ponto de Entrada, a saída também pode ter vários arquivos dependendo da sua configuração, mas por padrão, gera apenas um. 
           </p>
         </li>
-        <li>
+        <li id="loaders">
           <h5>Loaders</h5>
           <img src="https://user-images.githubusercontent.com/82516932/186047057-ade3f86a-eaa0-4d09-99a4-21a2f05e6d62.svg">
           <p align="justify">
@@ -146,7 +171,7 @@
 ```
 
   </li>
-        <li>
+        <li id="plugins">
           <h5>Plugins</h5>
         </li>
       </ul>
