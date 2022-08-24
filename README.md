@@ -13,7 +13,7 @@
 
 <br>
 
-<div align="left" >
+<div align="left">
   <img src="https://user-images.githubusercontent.com/82516932/186055317-417eb956-94ba-4889-b929-fbe141835f2f.svg" width="800">
   <ul>
     <li>
@@ -93,25 +93,79 @@
   const pessoaFisica = new PessoaFisica('José', 24, 'Programador');
 ```
 
-  <p>
-      É possivel entender com o exemplo que a classe foi exportada para dentro do "index.js", isso é o que chamamos de módulo, lembrando que cada módulo possui seu próprio escopo.
+<p>
+    É possivel entender com o exemplo que a classe foi exportada para dentro do "index.js", isso é o que chamamos de módulo, lembrando que cada módulo possui seu próprio escopo.
+  </p>
+    <li><strong>Conceitos Fundamentais do Webpack</strong>:</li>
+    <p align="justify">
+      No geral, essa ferramenta possui 4 conceitos fundamentais: <strong> Entry Point, Output Point, Loaders e Plugins</strong>.
     </p>
-      <li><strong>Conceitos Fundamentais do Webpack</strong>:</li>
-      <p align="justify">
-        No geral, essa ferramenta possui 4 conceitos fundamentais: <strong> Entry Point, Output Point, Loaders e Plugins</strong>.
-      </p>
-      <ul>
-        <li id="pontoDeEntrada">
-          <h5>Entry Point (Ponto de Entrada)</h5>
-          <img src="https://user-images.githubusercontent.com/82516932/186042900-0b4d9134-e096-4374-94cb-11a60c3123e9.svg">
-          <p align="justify">
-            Por aqui que o webpack irá interpretar quais serão os módulos que serão unificados, a partir de um arquivo inicial <strong>(por padrão ele captura o "index.js")</strong> é capturado todos os outros importados sucessivamente.
-          </p>
-          <br>
-          <p align="justify">          
-            É importante ressaltar que é possível ter vários arquivos como ponto de entrada assim como é possível trocar o nome de todos esses arquivos normalmente, o <strong>index.js é apenas uma convenção</strong>.
-          </p>
-        </li>
+<ul>
+<li id="pontoDeEntrada">
+  <h5>Entry Point (Ponto de Entrada)</h5>
+  <img src="https://user-images.githubusercontent.com/82516932/186042900-0b4d9134-e096-4374-94cb-11a60c3123e9.svg">
+  <p align="justify">
+    Por aqui que o webpack irá interpretar quais serão os módulos que serão unificados, a partir de um arquivo inicial <strong>(por padrão ele captura o "index.js")</strong> é capturado todos os outros importados sucessivamente.
+  </p>
+  <br>
+  <p align="justify">          
+    É importante ressaltar que é possível ter vários arquivos como ponto de entrada assim como é possível trocar o nome de todos esses arquivos normalmente, o <strong>index.js é apenas uma convenção</strong>.
+  </p>
+  <h3>EXEMPLO</h3>
+  <p align="justify">
+    Primeiramente, é necessário instalar o webpack:
+  </p>
+
+```SHELL
+  npm init -y
+```
+
+```SHELL
+  npm i -D webpack webpack-cli
+```
+
+  <ul>
+    <li>
+      <strong>webpack</strong>: se trata das dependencia do recurso;
+    </li>
+    <li>
+      <strong>webpack-cli</strong>: possibilidade de executar esse webpack por linha de comando.
+    </li>
+  </ul>
+  <br>
+  <p aling="justify">
+    Agora vamos precisar criar um arquivo dentro do nosso repositório chamado <strong>"webpack.config.js"</strong>, nele que iremos adicionar todos os pontos de entrada, sáida, loaders e plugins o quanto for necessário. 
+  </p>
+  <br>
+  <p>
+    Além desse arquivo, ainda precisamos criar duas pastas dentro do nosso repositório. Elas representam o caminho padrão que o webpack captura quando não é configurado. São elas:
+  </p>
+  <ul>
+    <li><strong>src</strong>: Local onde ficará todos os arquivos .js que iremos trabalhar</li> 
+    <li><strong>dist</strong>: Pasta onde ficará os arquivos de sáida, no caso, o main.js, style.css e outros. Aqui também que será a <strong>refência</strong> que iremos adicionar no <strong>HEAD do HTML</strong></li> 
+  </ul>
+  <br>
+  <p>
+    Dentro dessas pastas, precisamos criar dois arquivos respectivamente, sendo eles:
+  </p>
+  <ul>
+    <li><strong>index.js</strong>: Esse se trata do arquivo principal dentro do nosso projeto, onde irá receber todos os módulos e será a <strong>porta de entrada para o webpack</strong></li> 
+    <li><strong>main.js/bundle.js</strong>: Será o arquivo final que conterá todos o nossos módulos e codação em geral relizada a partir da pasta "src". Esse arquivo atualmente, <strong>por conveção</strong> é chamado de <strong>main.js</strong>, mas também é possivel ver ele com o nome de <strong>bundle.js</strong>.</li> 
+  </ul>
+  <h5>
+    OBS: o nome desses <u>arquivos/pastas</u> são uma convenção, não há obrigatoriedade deles serem nomeados assim.
+  </h5>
+  <hr>
+  <img src="https://user-images.githubusercontent.com/82516932/186433705-ebe98aca-1287-4ca6-8f96-0be946444ddb.png">
+  <br>  
+  <i>
+    Demonstração de como deveria ficar o respositório. 
+  </i>
+  <hr>
+  <p>
+    Agora podemos configurar o arquivo <strong>webpack.config.js</strong> (porém, se não configurassemos, ele iria usar os caminhos que criamos por padrão no projeto, o <strong>"src/index.js"</strong> e <strong>"dist/main.js"</strong>).
+  </p>
+</li>
         <li id="pontoDeSaida">
           <h5>Output Point (Ponto de Saída)</h5>
           <img src="https://user-images.githubusercontent.com/82516932/186043701-302e76c0-a13b-48b3-958c-5fbfe1ea2131.svg">
@@ -162,13 +216,6 @@
             </li>
           </ul>
           <br>
-          <p align="justify">
-            Instalação:
-          </p>
-
-```SHELL
-  npm i -D webpack webpack-cli @babel/core @babel/preset-env babel-loader
-```
 
   </li>
         <li id="plugins">
@@ -197,10 +244,14 @@
     <img src="https://user-images.githubusercontent.com/82516932/185760260-92710eef-ae41-449e-a023-9f10b6011b13.svg" width="800">
     <ul>
       <li>
-        <strong>Web Dev Drops:</strong> <u>https://www.webdevdrops.com/webpack-sem-medo-parte-2-loaders-1d1239df3945/</u>
+        <strong>Web Dev Drops:</strong>
+        <br>
+        <u>https://www.webdevdrops.com/webpack-sem-medo-parte-2-loaders-1d1239df3945/</u>
       </li>
       <li>
-        <strong>Blog Fellyph:</strong> <u>https://blog.fellyph.com.br/javascript/introducao-webpack-parte-2-loaders/</u>
+        <strong>Blog Fellyph:</strong>
+        <br> 
+        <u>https://blog.fellyph.com.br/javascript/introducao-webpack-parte-2-loaders/</u>
       </li>
     </ul>
 </div>
