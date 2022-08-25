@@ -8,11 +8,11 @@
 
 Hoje falaremos sobre **Webpack**, um assunto muito importante e daora de ser tratado entre os Dev's. Aqui, mostrarei o por que você deveria usar essa ferramenta e quais usos esse empacotador de arquivos pode ter no seu dia a dia. Também vou mostrar quais tecnologias já a utilizam e você provalvelmente não sabia.
 
-![Tópicos](https://user-images.githubusercontent.com/82516932/186565522-dce89059-ec52-4d0f-96f9-d804db6293ba.svg)
+![Topicos](https://user-images.githubusercontent.com/82516932/186565522-dce89059-ec52-4d0f-96f9-d804db6293ba.svg)
 
 - **[Resumo](#resumo)**
-- **[Artigo Completo](#artigoCompleto)**
-  - **[ES Modules](#esModules)**
+- **[Artigo Completo](#artigo-completo)**
+  - **[ES Modules](#es-modules)**
   - _Conceitos Fundamentais do Webpack_
     - **[Entry Point](#entryPoint)**
     - **[Output Point](#outputPoint)**
@@ -20,24 +20,22 @@ Hoje falaremos sobre **Webpack**, um assunto muito importante e daora de ser tra
     - **[Plugins](#plugins)**
 - **[Fontes](#fontes)**
 
-![Resumo](https://user-images.githubusercontent.com/82516932/186561412-e82b73f2-b819-4b71-bbb0-f1473c9e344c.svg)
+# ![Resumo](https://user-images.githubusercontent.com/82516932/186561412-e82b73f2-b819-4b71-bbb0-f1473c9e344c.svg)
 
-<br>
+# ![Artigo Completo](https://user-images.githubusercontent.com/82516932/186561432-62d12540-895b-4a1d-917d-d502ad52fb69.svg)
 
-<div align="left" id="doQueSeTrata">
-    <img src="https://user-images.githubusercontent.com/82516932/186561432-62d12540-895b-4a1d-917d-d502ad52fb69.svg" width="800">
-  <p align="justify">
-    O webpack é um <strong>empacotador de módulos para javascript</strong>, ou seja, ele junta arquivos JS ou outros formatos, assim como bibliotecas, frameworks, pré-processaores em um <strong>único arquivo só</strong>. Tudo isso com diferentes formas trabalhar <strong>(Produção e Desenvolvimento)</strong> e sem duplicar arquivos, tudo na ordem certa como o menor tamanho possível para o deploy.
-  </p>
+O webpack é um **empacotador de módulos para javascript**, ou seja, ele junta arquivos JS ou outros formatos, assim como bibliotecas, frameworks, pré-processaores em um **único arquivo só**. Tudo isso com diferentes formas trabalhar **(Produção e Desenvolvimento)** e sem duplicar arquivos, tudo na ordem certa como o menor tamanho possível para o deploy.
 
-  <p align="justify">
-    No geral, essa ferramenta consegue fazer algumas coisas bem legais com arquivos que trabalhamos diariamente, porém, levando as <strong>"boas práticas" a outro nível</strong>. Aqui temos algumas coissas que é possível fazer:
-  </p>
+No geral, essa ferramenta consegue fazer algumas coisas bem legais com arquivos que trabalhamos diariamente, porém, levando as **"boas práticas" a outro nível**. Aqui temos algumas coissas que é possível fazer:
 
-  <ul>
-    <li>Javascript com: <strong>ES6+, JSX, Typescript e Babel;</strong></li>
-    <li>Outros formatos de arquivos como: <strong>CSS, SASS, LESS, Styles Componentes, SVG, PNG, JPG</strong> e outros...</li>
-  </ul>
+- Javascript com: **ES6+, JSX, Typescript e Babel;**
+  Outros formatos de arquivos como: **CSS, SASS, LESS, Styles Componentes, SVG, PNG, JPG** e outros...
+
+### Funcionamento
+
+Essa ferramenta funciona a partir de **"Módulos"**, para quem já está acostumado com ES6+ deve saber como funciona os **import/exports** porém para quem não sabe, vou fazer um overview abaixo.
+
+- #### **ES Modules**
 
   <h3>Funcionamento</h3>
   <p align="justify">
