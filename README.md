@@ -149,14 +149,18 @@
     Dentro dessas pastas, precisamos criar dois arquivos respectivamente, sendo eles:
   </p>
   <ul>
-    <li><strong>index.js</strong>: Esse se trata do arquivo principal dentro do nosso projeto, onde irá receber todos os módulos e será a <strong>porta de entrada para o webpack</strong></li> 
-    <li><strong>main.js/bundle.js</strong>: Será o arquivo final que conterá todos o nossos módulos e codação em geral relizada a partir da pasta "src". Esse arquivo atualmente, <strong>por conveção</strong> é chamado de <strong>main.js</strong>, mas também é possivel ver ele com o nome de <strong>bundle.js</strong>.</li> 
+    <li>
+      <strong>index.js</strong>: Esse se trata do arquivo principal dentro do nosso projeto, onde irá receber todos os módulos e será a <strong>porta de entrada para o webpack</strong></li> 
+      <li><strong>js/main.js ou js/bundle.js</strong>: Será o arquivo final que conterá todos o nossos módulos e codação em geral relizada a partir da pasta "src". Esse arquivo atualmente, <strong>por conveção</strong> é chamado de <strong>main.js</strong>, mas também é possivel ver ele com o nome de <strong>bundle.js</strong>. 
+      <br><br>
+      Importante ressaltar que o <strong>js/</strong> é uma maneira que eu utilizo nos meus códigos, mas poderia muito bem ser direto no dist sem nenhuma outra pasta junto.
+    </li> 
   </ul>
   <h5>
     OBS: o nome desses <u>arquivos/pastas</u> são uma convenção, não há obrigatoriedade deles serem nomeados assim.
   </h5>
   <hr>
-  <img src="https://user-images.githubusercontent.com/82516932/186433705-ebe98aca-1287-4ca6-8f96-0be946444ddb.png">
+  <img src="https://user-images.githubusercontent.com/82516932/186549730-75d69ac5-455e-4783-bf43-65eef5430d47.png">
   <br>  
   <i>
     Demonstração de como deveria ficar o respositório. 
@@ -165,22 +169,169 @@
   <p>
     Agora podemos configurar o arquivo <strong>webpack.config.js</strong> (porém, se não configurassemos, ele iria usar os caminhos que criamos por padrão no projeto, o <strong>"src/index.js"</strong> e <strong>"dist/main.js"</strong>).
   </p>
+  <br>
+
+```JS
+  //webpack.config.js
+  module.exports = {
+    entry: ['./src/index.js','./src/fazerAlgo.js'],
+  };
+```
+
+  <p>
+    Aqui nesse exemplo podemos ver como é a sintaxe do arquivo de configuração do webpack, precisamos <strong>exportar o módulo com o entry (ponto de entrada)</strong>, nele passamos um array contendo todos os caminhos que o webpack vai iniciar sua unificação.
+  </p>
+  <br>
+  <p>
+    Nesse exemplo usamos o <strong>'./src/index.js'</strong> e o <strong>'./src/fazerAlgo.js'</strong> para mostrar que é possível ter vários pontos de entrada, eles são arquivos que usamos quando precisamos que dois arquivos não tenham ligação. Mas nesse artigo, usaremos apenas o index.js.
+  </p>
+  <br>
+  <p>
+    Com isso, finalizamos a parte do entry point...
+  </p>
 </li>
-        <li id="pontoDeSaida">
-          <h5>Output Point (Ponto de Saída)</h5>
-          <img src="https://user-images.githubusercontent.com/82516932/186043701-302e76c0-a13b-48b3-958c-5fbfe1ea2131.svg">
-          <p align="justify">
-            Aqui ficará todo o código dos módulos importados, incluindo a trasnpilação com o babel e importação de apenas um tag no HTML para sua utilização.
-          </p>
-          <br>
-          <p align="justify">          
-            Por padrão, esse arquivo tem o nome de <strong>"main.js"</strong> como sáida, sendo esse um nome de convenção, porém, também é bastante utilizado o <strong>"bundle.js"</strong> como conveção.
-          </p>
-          <br>
-          <p align="justify">          
-            E assim como o Ponto de Entrada, a saída também pode ter vários arquivos dependendo da sua configuração, mas por padrão, gera apenas um. 
-          </p>
-        </li>
+<li id="pontoDeSaida">
+  <h5>Output Point (Ponto de Saída)</h5>
+  <img src="https://user-images.githubusercontent.com/82516932/186043701-302e76c0-a13b-48b3-958c-5fbfe1ea2131.svg">
+  <p align="justify">
+    Aqui ficará todo o código dos módulos importados, incluindo a trasnpilação com o babel e importação de apenas um tag no HTML para sua utilização.
+  </p>
+  <br>
+  <p align="justify">          
+    Por padrão, esse arquivo tem o nome de <strong>"main.js"</strong> como sáida, sendo esse um nome de convenção, porém, também é bastante utilizado o <strong>"bundle.js"</strong> como conveção.
+  </p>
+  <br>
+  <p align="justify">          
+    E assim como o Ponto de Entrada, a saída também pode ter vários arquivos dependendo da sua configuração, mas por padrão, gera apenas um. 
+  </p>
+  <h3>Exemplo</h3>
+  <p>
+    Vamos continuar usando o exemplo anterior, agora, fazeremos a saída desses módulos, para isso, precisaremos <strong>configurar o ponto de saída do webpack.</strong>
+  </p>
+  <br>
+
+```JS
+  //webpack.config.js
+  const path = require('path');
+
+  module.exports = {
+    entry: ['./src/index.js'],
+    output: {
+      filename: 'main.js',
+      path: path.resolve(__dirname, 'dist');
+    }
+  };
+```
+
+  <p>
+    <i>
+      Agora, criamos uma chave chamada output (ponto de saída), ela aceita basicamente duas outras chaves para declarar a sáida do arquivo. O <strong>filename</strong> e o <strong>path</strong>.  
+    </i>
+    <br><br>
+    <i>
+      <strong>Filename:</strong> se trata do nome que o arquivo terá, é importante lembrar que ele será a refêrencia dentro do HTML como arquivo unificado. 
+    </i>
+    <br><br>
+    <i>
+      <strong>Path:</strong> Trata-se do caminho absoluto até a pasta que desejamos, esse path faz o papel de direcionar ao webpack em qual pasta iremos querer a sáida do arquivo final. 
+    </i>
+  </p>
+  <hr>
+  <p>
+    Com esse arquivo configurado, precisamos criar um outro arquivo, agora em HTML. Ele será nosso <strong>index.html</strong>, arquivo que terá a referência do nosso <strong>main.js</strong>.
+  </p>
+  <br>
+
+```HTML
+  <!-- index.html -->
+  <!DOCTYPE html>
+  <html lang="br-BR">
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <script defer src="./dist/js/main.js"></script>
+      <title>TESTE</title>
+    </head>
+    <body></body>
+  </html>
+```
+
+  <p>
+    Com a refência adicionada no HTML, agora podemos criar os script para finalmente rodar o webpack.
+  </p>
+
+  <h5>OBS: é possível simplesmente com essas configurações usar o webpack da maneira mais básica possivel, nos próximos conceitos, iremos aprofundar mais na possibilidades da ferramenta.</h5>
+
+  <p>
+    Agora vamos adicionar os scripts do webpack.
+  </p>
+
+```JS
+//package.json
+  "scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "build:dev": "webpack -w --mode development",
+  "build:prod": "webpack --mode production"
+},
+```
+
+  <p>
+    <i>Dentro do nosso <strong>package.json</strong> vamos adicionar os scripts:</i>
+  </p>
+
+  <ul>
+    <li>
+      <i><strong>build:dev</strong>: Servirá como uma forma de usar o webpack apenas no ambiente de desenvolvimento, ou seja, será utilizado apenas quando estivermos realizando a manutenção, correção de bugs ou novas features. 
+      <br><br>
+      Nesse modo, o arquivo final não é minificado e apenas remove o que não é necessário, diminuindo um pouco o tamanho do arquivo, por isso é a opção de desenvolvimento.<br><br>
+      Sua sintaxe possui a <strong>flag -w</strong>, servindo como uma maneira de refazr o processo de build toda vez que atualizar o arquivo, parecido com o <strong>Nodemon do NodeJS</strong>
+      </i>
+    </li>
+    <br>
+    <li>
+      <i><strong>build:prod</strong>: Será utilizado para upar o arquivo para a produção, ele irá gerar o arquivo completamente minificado, bem reduzido e com nome de váriaveis trocadas para otimizar a performace do software.</i>
+    </li>
+  </ul>
+  <hr>
+  <img src="https://user-images.githubusercontent.com/82516932/186559704-686165a8-bfef-4080-8b02-ff740499773f.png">
+  <br>  
+  <i>
+    Por fim, nosso respositório acaba ficando assim. 
+  </i>
+  <hr>
+
+  <p>
+    Após concluir todos esses passos, basta executar os comandos abaixos de acordo com a necessidade e abrir o website para ver o funcionamento geral.
+  </p>
+
+  <ul>
+    <li>
+      <p>
+        Para desenvolver, executaremos:
+      </p>
+
+```SHELL
+npm run build:dev
+```
+
+  </li>
+
+  <li>
+      <p>
+        E para fazer o deploy, executaremos:
+      </p>
+
+```SHELL
+npm run build:prod
+```
+
+  </li>
+  </ul>
+
+  <p>Finalizando assim, a parte do ponto de saída...</p>
+
+</li>
         <li id="loaders">
           <h5>Loaders</h5>
           <img src="https://user-images.githubusercontent.com/82516932/186047057-ade3f86a-eaa0-4d09-99a4-21a2f05e6d62.svg">
