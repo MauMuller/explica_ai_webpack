@@ -14,7 +14,7 @@ Hoje falaremos sobre **Webpack**, um assunto muito importante e daora de ser tra
 - **[Artigo Completo](#artigo-completo)**
   - **[ES Modules](#es-modules)**
   - _Conceitos Fundamentais do Webpack_
-    - **[Entry Point](#entryPoint)**
+    - **[Entry Point](<#entry-point-(ponto-de-entrada)>)**
     - **[Output Point](#outputPoint)**
     - **[Loaders](#loaders)**
     - **[Plugins](#plugins)**
@@ -31,74 +31,63 @@ O webpack é um **empacotador de módulos para javascript**, ou seja, ele junta 
 No geral, essa ferramenta consegue fazer algumas coisas bem legais com arquivos que trabalhamos diariamente, porém, levando as **"boas práticas" a outro nível**. Aqui temos algumas coissas que é possível fazer:
 
 - Javascript com: **ES6+, JSX, Typescript e Babel;**
-  Outros formatos de arquivos como: **CSS, SASS, LESS, Styles Componentes, SVG, PNG, JPG** e outros...
+- Outros formatos de arquivos como: **CSS, SASS, LESS, Styles Componentes, SVG, PNG, JPG** e outros...
 
-### Funcionamento
+## Funcionamento
 
 Essa ferramenta funciona a partir de **"Módulos"**, para quem já está acostumado com ES6+ deve saber como funciona os **import/exports** porém para quem não sabe, vou fazer um overview abaixo.
 
-- #### **ES Modules**
+- ### **ES Modules**
 
-  <h3>Funcionamento</h3>
-  <p align="justify">
-    Essa ferramenta funciona a partir de <strong>"Módulos"</strong>, para quem já está acostumado com ES6+ deve saber como funciona os <strong>import/exports</strong> porém para quem não sabe, vou fazer um overview abaixo.
-    <ul>
-      <li id="esModules"><strong>ES Modules</strong>:</li>
-      <p align="justify">
-        Os "Imports/Exports" funcionam para acessar determinadas funções, objetos, array, classes ou variaveis de outro arquivo. Ou seja, o "import" recebe a partir do diretório e o "export" envia. 
-      </p>
-      <p align="justify">
-        Aqui vou mostrar um pequeno exemplo do funcionamento:
-      </p>
+  Os "Imports/Exports" funcionam para acessar determinadas funções, objetos, array, classes ou variaveis de outro arquivo. Ou seja, o "import" recebe a partir do diretório e o "export" envia.
 
-```JS
-  //PessoaFisica.js
-  export default class PessoaFisica{
-    constructor(nome, idade, trabalho){
-      this.nome = nome;
-      this.idade = idade;
-      this.trabalho = trabalho;
+  Aqui vou mostrar um pequeno exemplo do funcionamento:
+
+  ```JS
+    //PessoaFisica.js
+    export default class PessoaFisica{
+      constructor(nome, idade, trabalho){
+        this.nome = nome;
+        this.idade = idade;
+        this.trabalho = trabalho;
+      }
     }
-  }
-```
+  ```
 
-```JS
-  //index.js
-  import PessoaFisica from "./models/PessoaFisica.js";
+  ```JS
+    //index.js
+    import PessoaFisica from "./models/PessoaFisica.js";
 
-  const pessoaFisica = new PessoaFisica('José', 24, 'Programador');
-```
+    const pessoaFisica = new PessoaFisica('José', 24, 'Programador');
+  ```
 
-<p>
-    É possivel entender com o exemplo que a classe foi exportada para dentro do "index.js", isso é o que chamamos de módulo, lembrando que cada módulo possui seu próprio escopo.
-  </p>
-    <li><strong>Conceitos Fundamentais do Webpack</strong>:</li>
-    <p align="justify">
-      No geral, essa ferramenta possui 4 conceitos fundamentais: <strong> Entry Point, Output Point, Loaders e Plugins</strong>.
-    </p>
-<ul>
-<li id="pontoDeEntrada">
-  <h5>Entry Point (Ponto de Entrada)</h5>
-  <img src="https://user-images.githubusercontent.com/82516932/186042900-0b4d9134-e096-4374-94cb-11a60c3123e9.svg">
-  <p align="justify">
-    Por aqui que o webpack irá interpretar quais serão os módulos que serão unificados, a partir de um arquivo inicial <strong>(por padrão ele captura o "index.js")</strong> é capturado todos os outros importados sucessivamente.
-  </p>
-  <br>
-  <p align="justify">          
-    É importante ressaltar que é possível ter vários arquivos como ponto de entrada assim como é possível trocar o nome de todos esses arquivos normalmente, o <strong>index.js é apenas uma convenção</strong>.
-  </p>
-  <h3>EXEMPLO</h3>
-  <p align="justify">
+  É possivel entender com o exemplo que a classe foi exportada para dentro do "index.js", isso é o que chamamos de módulo, lembrando que cada módulo possui seu próprio escopo.
+
+- ### Conceitos Fundamentais do Webpack
+
+  No geral, essa ferramenta possui 4 conceitos fundamentais: **Entry Point, Output Point, Loaders e Plugins**.
+
+  - #### Entry Point (Ponto de Entrada)
+
+    <img src="https://user-images.githubusercontent.com/82516932/186042900-0b4d9134-e096-4374-94cb-11a60c3123e9.svg">
+
+    Por aqui que o webpack irá interpretar quais serão os módulos que serão unificados, a partir de um arquivo inicial **(por padrão ele captura o "index.js")** é capturado todos os outros importados sucessivamente.
+
+    <br>
+
+    É importante ressaltar que é possível ter vários arquivos como ponto de entrada assim como é possível trocar o nome de todos esses arquivos normalmente, o **index.js é apenas uma convenção**.
+
+    ##### EXEMPLO
+
     Primeiramente, é necessário instalar o webpack:
-  </p>
 
-```SHELL
-  npm init -y
-```
+    ```SHELL
+      npm init -y
+    ```
 
-```SHELL
-  npm i -D webpack webpack-cli
-```
+    ```SHELL
+      npm i -D webpack webpack-cli
+    ```
 
   <ul>
     <li>
