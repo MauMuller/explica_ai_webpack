@@ -4,52 +4,28 @@
 
 <br><br>
 
-<div align="left">
-  <img src="https://user-images.githubusercontent.com/82516932/185759115-243e5619-9fec-4fd3-b576-734775b57f4c.svg" width="800">
-  <p align="justify">
-    Hoje falaremos sobre <strong>Webpack</strong>, um assunto muito importante e daora de ser tratado entre os Dev's. Aqui, mostrarei o por que você deveria usar essa ferramenta e quais usos esse empacotador de arquivos pode ter no seu dia a dia. Também vou mostrar quais tecnologias já a utilizam e você provalvelmente não sabia.
-  </p>
-</div>
+![Preview](https://user-images.githubusercontent.com/82516932/185759115-243e5619-9fec-4fd3-b576-734775b57f4c.svg)
 
-<br>
+Hoje falaremos sobre **Webpack**, um assunto muito importante e daora de ser tratado entre os Dev's. Aqui, mostrarei o por que você deveria usar essa ferramenta e quais usos esse empacotador de arquivos pode ter no seu dia a dia. Também vou mostrar quais tecnologias já a utilizam e você provalvelmente não sabia.
 
-<div align="left">
-  <img src="https://user-images.githubusercontent.com/82516932/186055317-417eb956-94ba-4889-b929-fbe141835f2f.svg" width="800">
-  <ul>
-    <li>
-      <strong><a href="#doQueSeTrata">Do que se trata?</a></strong>
-      <ul>
-        <li>
-            <strong><a href="#esModules">ES Modules</a></strong>
-        </li> 
-        <li>
-          <i>Conceitos Fundamentais do Webpack</i>  
-          <ul>
-            <li>
-              <strong><a href="#pontoDeEntrada">Ponto de Entrada</a></strong>
-            </li>
-            <li>
-              <strong><a href="#pontoDeSaida">Ponto de Saída</a></strong>
-            </li>
-            <li>
-              <strong><a href="#loaders">Loaders</a></strong>
-            </li>
-            <li>
-              <strong><a href="#plugins">Plugins</a></strong>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <br>
-    <li><strong><a href="#comoInstalo">Como instalo?</a></strong></li>
-  </ul>
-</div>
+![Tópicos](https://user-images.githubusercontent.com/82516932/186565522-dce89059-ec52-4d0f-96f9-d804db6293ba.svg)
+
+- **[Resumo](#resumo)**
+- **[Artigo Completo](#artigoCompleto)**
+  - **[ES Modules](#esModules)**
+  - _Conceitos Fundamentais do Webpack_
+    - **[Entry Point](#entryPoint)**
+    - **[Output Point](#outputPoint)**
+    - **[Loaders](#loaders)**
+    - **[Plugins](#plugins)**
+- **[Fontes](#fontes)**
+
+![Resumo](https://user-images.githubusercontent.com/82516932/186561412-e82b73f2-b819-4b71-bbb0-f1473c9e344c.svg)
 
 <br>
 
 <div align="left" id="doQueSeTrata">
-    <img src="https://user-images.githubusercontent.com/82516932/185759801-a12dee7e-88c9-49f1-a2f4-c11dd14eddc8.svg" width="800">
+    <img src="https://user-images.githubusercontent.com/82516932/186561432-62d12540-895b-4a1d-917d-d502ad52fb69.svg" width="800">
   <p align="justify">
     O webpack é um <strong>empacotador de módulos para javascript</strong>, ou seja, ele junta arquivos JS ou outros formatos, assim como bibliotecas, frameworks, pré-processaores em um <strong>único arquivo só</strong>. Tudo isso com diferentes formas trabalhar <strong>(Produção e Desenvolvimento)</strong> e sem duplicar arquivos, tudo na ordem certa como o menor tamanho possível para o deploy.
   </p>
@@ -375,18 +351,6 @@ npm run build:prod
       </ul>
     </ul>
   </p>
-</div>
-
-<br>
-
-<div align="left" id="comoInstalo">
-    <img src="https://user-images.githubusercontent.com/82516932/185759904-f738ecff-9a00-40fe-8694-6e0ca0e52c0c.svg" width="800">
-</div>
-
-<br>
-
-<div align="left">
-    <img src="https://user-images.githubusercontent.com/82516932/186051912-672d5bf6-15da-4885-ad00-cc785995b772.svg" width="800">
 </div>
 
 <br>
