@@ -6,7 +6,7 @@
 
 ![Preview](https://user-images.githubusercontent.com/82516932/185759115-243e5619-9fec-4fd3-b576-734775b57f4c.svg)
 
-Hoje falaremos sobre **Webpack**, um assunto muito importante e daora de ser tratado entre os Dev's. Aqui, mostrarei o por que você deveria usar essa ferramenta e quais usos esse empacotador de arquivos pode ter no seu dia a dia. Também vou mostrar quais tecnologias já a utilizam e você provalvelmente não sabia.
+Hoje falaremos sobre **Webpack**, um assunto muito importante e daora de ser tratado entre os Dev's. Aqui, mostrarei o por que você deveria usar essa ferramenta e quais usos esse empacotador de arquivos pode ter no seu dia a dia.
 
 ![Topicos](https://user-images.githubusercontent.com/82516932/186565522-dce89059-ec52-4d0f-96f9-d804db6293ba.svg)
 
@@ -14,8 +14,8 @@ Hoje falaremos sobre **Webpack**, um assunto muito importante e daora de ser tra
 - **[Artigo Completo](#artigo-completo)**
   - **[ES Modules](#es-modules)**
   - _Conceitos Fundamentais do Webpack_
-    - **[Entry Point](<#entry-point-(ponto-de-entrada)>)**
-    - **[Output Point](#outputPoint)**
+    - **[Entry Point](#entry-point-\(ponto-de-entrada\))**
+    - **[Output Point](#output-point-\(ponto-de-saida\))**
     - **[Loaders](#loaders)**
     - **[Plugins](#plugins)**
 - **[Fontes](#fontes)**
@@ -77,7 +77,7 @@ Essa ferramenta funciona a partir de **"Módulos"**, para quem já está acostum
 
     É importante ressaltar que é possível ter vários arquivos como ponto de entrada assim como é possível trocar o nome de todos esses arquivos normalmente, o **index.js é apenas uma convenção**.
 
-    ##### EXEMPLO
+    #### EXEMPLO
 
     Primeiramente, é necessário instalar o webpack:
 
@@ -142,7 +142,7 @@ Essa ferramenta funciona a partir de **"Módulos"**, para quem já está acostum
 
     ***
 
-    - #### Output Point (Ponto de Saída)
+    - #### Output Point (Ponto de Saida)
 
     <img src="https://user-images.githubusercontent.com/82516932/186043701-302e76c0-a13b-48b3-958c-5fbfe1ea2131.svg">
 
@@ -156,7 +156,7 @@ Essa ferramenta funciona a partir de **"Módulos"**, para quem já está acostum
 
     E assim como o Ponto de Entrada, a saída também pode ter vários arquivos dependendo da sua configuração, mas por padrão, gera apenas um.
 
-    #### EXEMPLO
+    ### EXEMPLO
 
     Vamos continuar usando o exemplo anterior, agora, fazeremos a saída desses módulos, para isso, precisaremos **configurar o ponto de saída do webpack.**
 
@@ -275,7 +275,7 @@ Essa ferramenta funciona a partir de **"Módulos"**, para quem já está acostum
     - Transpiling (ES5, .jsx, .vue, .ts...)
     - Styling (.css, .scss...)
           
-    #### EXEMPLO
+    ### EXEMPLO
 
     Usaremos os determinados loaders nesse exemplo:
     - Arquivos: <strong>"url-loader"</strong>, <strong>"file-loader"</strong>;
@@ -294,6 +294,6 @@ Essa ferramenta funciona a partir de **"Módulos"**, para quem já está acostum
     
     <u>https://www.webdevdrops.com/webpack-sem-medo-parte-2-loaders-1d1239df3945/</u>
     
-    **Blog Fellyph:**
+    - **Blog Fellyph:**
        
     <u>https://blog.fellyph.com.br/javascript/introducao-webpack-parte-2-loaders/</u>
