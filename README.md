@@ -6,7 +6,7 @@
 
 ![Preview](https://user-images.githubusercontent.com/82516932/185759115-243e5619-9fec-4fd3-b576-734775b57f4c.svg)
 
-Hoje falaremos sobre **Webpack**, um assunto muito importante e daora de ser tratado entre os Dev's. Aqui, mostrarei o por que você deveria usar essa ferramenta e quais usos esse empacotador de arquivos pode ter no seu dia a dia.
+Hoje falaremos sobre **Webpack**, um assunto muito importante e daora de ser tratado entre os Dev's. Aqui, mostrarei o por que você deveria usar essa ferramenta e quais usos esse empacotador de arquivos pode ter no seu dia a dia. Vou deixar um resuminho também para você apenas pegar os arquivos prontos a aplicar no projeto, tamo junto 👍
 
 ![Topicos](https://user-images.githubusercontent.com/82516932/186565522-dce89059-ec52-4d0f-96f9-d804db6293ba.svg)
 
@@ -33,11 +33,9 @@ No geral, essa ferramenta consegue fazer algumas coisas bem legais com arquivos 
 - Javascript com: **ES6+, JSX, Typescript e Babel;**
 - Outros formatos de arquivos como: **CSS, SASS, LESS, Styles Componentes, SVG, PNG, JPG** e outros...
 
-## Funcionamento
-
 Essa ferramenta funciona a partir de **"Módulos"**, para quem já está acostumado com ES6+ deve saber como funciona os **import/exports** porém para quem não sabe, vou fazer um overview abaixo.
 
-- ### **ES Modules**
+- # ES Modules
 
   Os "Imports/Exports" funcionam para acessar determinadas funções, objetos, array, classes ou variaveis de outro arquivo. Ou seja, o "import" recebe a partir do diretório e o "export" envia.
 
@@ -63,11 +61,11 @@ Essa ferramenta funciona a partir de **"Módulos"**, para quem já está acostum
 
   É possivel entender com o exemplo que a classe foi exportada para dentro do "index.js", isso é o que chamamos de módulo, lembrando que cada módulo possui seu próprio escopo.
 
-- ### Conceitos Fundamentais do Webpack
+- # Conceitos Fundamentais do Webpack
 
   No geral, essa ferramenta possui 4 conceitos fundamentais: **Entry Point, Output Point, Loaders e Plugins**.
 
-  - #### Entry Point (Ponto de Entrada)
+  - ## Entry Point (Ponto de Entrada)
 
     <img src="https://user-images.githubusercontent.com/82516932/186042900-0b4d9134-e096-4374-94cb-11a60c3123e9.svg">
 
@@ -77,7 +75,7 @@ Essa ferramenta funciona a partir de **"Módulos"**, para quem já está acostum
 
     É importante ressaltar que é possível ter vários arquivos como ponto de entrada assim como é possível trocar o nome de todos esses arquivos normalmente, o **index.js é apenas uma convenção**.
 
-    #### EXEMPLO
+    ### EXEMPLO
 
     Primeiramente, é necessário instalar o webpack:
 
@@ -117,7 +115,7 @@ Essa ferramenta funciona a partir de **"Módulos"**, para quem já está acostum
 
     <br>
 
-    ##### OBS: o nome desses <u>arquivos/pastas</u> são uma convenção, não há obrigatoriedade deles serem nomeados assim.
+    #### OBS: o nome desses <u>arquivos/pastas</u> são uma convenção, não há obrigatoriedade deles serem nomeados assim.
 
     Agora podemos configurar o arquivo **webpack.config.js** (porém, se não configurassemos, ele iria usar os caminhos que criamos por padrão no projeto, o **"src/index.js"** e **"dist/main.js"**).
 
@@ -142,7 +140,7 @@ Essa ferramenta funciona a partir de **"Módulos"**, para quem já está acostum
 
     ***
 
-    - #### Output Point (Ponto de Saida)
+    - ## Output Point (Ponto de Saida)
 
     <img src="https://user-images.githubusercontent.com/82516932/186043701-302e76c0-a13b-48b3-958c-5fbfe1ea2131.svg">
 
@@ -202,7 +200,7 @@ Essa ferramenta funciona a partir de **"Módulos"**, para quem já está acostum
 
     Com a refência adicionada no HTML, agora podemos criar os script para finalmente rodar o webpack.
 
-    ##### OBS: é possível simplesmente com essas configurações usar o webpack da maneira mais básica possivel, nos próximos conceitos, iremos aprofundar mais na possibilidades da ferramenta.
+    #### OBS: é possível simplesmente com essas configurações usar o webpack da maneira mais básica possivel, nos próximos conceitos, iremos aprofundar mais na possibilidades da ferramenta.
 
     Agora vamos adicionar os scripts do webpack.
 
@@ -253,9 +251,9 @@ Essa ferramenta funciona a partir de **"Módulos"**, para quem já está acostum
 
     Finalizando assim, a parte do ponto de saída...
 
-    <hr>
+    ***
 
-    - #### Loaders    
+    - ## Loaders    
 
     <div align="center">
       <img src="https://user-images.githubusercontent.com/82516932/186047057-ade3f86a-eaa0-4d09-99a4-21a2f05e6d62.svg">
@@ -263,11 +261,7 @@ Essa ferramenta funciona a partir de **"Módulos"**, para quem já está acostum
 
     São **módulos instalados separadamente** do Webpack, como arquivos que não sejam Javascript. Isso acontece por que por padrão o webpack não entende nenhum arquivo que não seja .js, mas com esses plugins que é possível fazer isso.
     
-    <br>
-
     Esses loaders serão compilados e transformados em arquivos que o webpack entenda, realizando assim, a ideia inicial de poder unificar arquivos. No geral, eles trabalham juntamente com os plugins, gerando assim inumeras possíbilidades para o desenvolvimento da aplicação.
-
-    <br>
 
     No geral, podemos separar os loaders em subcategorias:
 
@@ -284,16 +278,14 @@ Essa ferramenta funciona a partir de **"Módulos"**, para quem já está acostum
 
     <hr>
 
-    - #### Plugins 
+    - ## Plugins 
 
     <hr>
 
-    <img src="https://user-images.githubusercontent.com/82516932/185760260-92710eef-ae41-449e-a023-9f10b6011b13.svg">
+    <img id="fontes" src="https://user-images.githubusercontent.com/82516932/185760260-92710eef-ae41-449e-a023-9f10b6011b13.svg">
 
     - **Web Dev Drops:**
-    
     <u>https://www.webdevdrops.com/webpack-sem-medo-parte-2-loaders-1d1239df3945/</u>
     
     - **Blog Fellyph:**
-       
     <u>https://blog.fellyph.com.br/javascript/introducao-webpack-parte-2-loaders/</u>
