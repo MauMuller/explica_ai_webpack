@@ -71,8 +71,6 @@ Essa ferramenta funciona a partir de **"Módulos"**, para quem já está acostum
 
     Por aqui que o webpack irá interpretar quais serão os módulos que serão unificados, a partir de um arquivo inicial **(por padrão ele captura o "index.js")** é capturado todos os outros importados sucessivamente.
 
-    <br>
-
     É importante ressaltar que é possível ter vários arquivos como ponto de entrada assim como é possível trocar o nome de todos esses arquivos normalmente, o **index.js é apenas uma convenção**.
 
     ### EXEMPLO
@@ -90,36 +88,22 @@ Essa ferramenta funciona a partir de **"Módulos"**, para quem já está acostum
     - **webpack**: se trata das dependencia do recurso;
     - **webpack-cli**: possibilidade de executar esse webpack por linha de comando.
 
-    <br>
-
     Agora vamos precisar criar um arquivo dentro do nosso repositório chamado **"webpack.config.js"**, nele que iremos adicionar todos os pontos de entrada, sáida, loaders e plugins o quanto for necessário.
 
-    <br>
-
     Além desse arquivo, ainda precisamos criar duas pastas dentro do nosso repositório. Elas representam o caminho padrão que o webpack captura quando não é configurado. São elas:
-
-    <br>
 
     - **src**: Local onde ficará todos os arquivos .js que iremos trabalhar
     - **dist**: Pasta onde ficará os arquivos de sáida, no caso, o main.js, style.css e outros. Aqui também que será a **refência** que iremos adicionar no **HEAD do HTML**.
 
-    <br>
-
     Dentro dessas pastas, precisamos criar dois arquivos respectivamente, sendo eles:
-
-    <br>
 
     - **index.js**: Esse se trata do arquivo principal dentro do nosso projeto, onde irá receber todos os módulos e será a **porta de entrada para o webpack**.
     - **js/main.js** ou **js/bundle.js**: Será o arquivo final que conterá todos o nossos módulos e codação em geral relizada a partir da pasta "src". Esse arquivo atualmente, **por conveção** é chamado de **main.js**, mas também é possivel ver ele com o nome de **bundle.js**.
       Importante ressaltar que a pasta **js/** é uma maneira que eu utilizo nos meus códigos, mas poderia muito bem ser direto no dist sem nenhuma outra pasta junto.
 
-    <br>
-
     #### OBS: o nome desses <u>arquivos/pastas</u> são uma convenção, não há obrigatoriedade deles serem nomeados assim.
 
     Agora podemos configurar o arquivo **webpack.config.js** (porém, se não configurassemos, ele iria usar os caminhos que criamos por padrão no projeto, o **"src/index.js"** e **"dist/main.js"**).
-
-    <br>
 
     ```JS
       //webpack.config.js
@@ -130,11 +114,7 @@ Essa ferramenta funciona a partir de **"Módulos"**, para quem já está acostum
 
     Aqui nesse exemplo podemos ver como é a sintaxe do arquivo de configuração do webpack, precisamos **exportar o módulo com o entry (ponto de entrada)**, nele passamos um array contendo todos os caminhos que o webpack vai iniciar sua unificação.
 
-    <br>
-
     Nesse exemplo usamos o **'./src/index.js'** e o **'./src/fazerAlgo.js'** para mostrar que é possível ter vários pontos de entrada, eles são arquivos que usamos quando precisamos que dois arquivos não tenham ligação. Mas nesse artigo, usaremos apenas o index.js.
-
-    <br>
 
     Com isso, finalizamos a parte do entry point...
 
@@ -146,19 +126,13 @@ Essa ferramenta funciona a partir de **"Módulos"**, para quem já está acostum
 
     Aqui ficará todo o código dos módulos importados, incluindo a trasnpilação com o babel e importação de apenas um tag no HTML para sua utilização.
 
-    <br>
-
     Por padrão, esse arquivo tem o nome de **"main.js"** como sáida, sendo esse um nome de convenção, porém, também é bastante utilizado o **"bundle.js"** como conveção.
-
-    <br>
 
     E assim como o Ponto de Entrada, a saída também pode ter vários arquivos dependendo da sua configuração, mas por padrão, gera apenas um.
 
     ### EXEMPLO
 
     Vamos continuar usando o exemplo anterior, agora, fazeremos a saída desses módulos, para isso, precisaremos **configurar o ponto de saída do webpack.**
-
-    <br>
 
     ```JS
       //webpack.config.js
@@ -180,8 +154,6 @@ Essa ferramenta funciona a partir de **"Módulos"**, para quem já está acostum
     > **Path:** Trata-se do caminho absoluto até a pasta que desejamos, esse path faz o papel de direcionar ao webpack em qual pasta iremos querer a sáida do arquivo final.
 
     Com esse arquivo configurado, precisamos criar um outro arquivo, agora em HTML. Ele será nosso **index.html**, arquivo que terá a referência do nosso **main.js**.
-
-    <br>
 
     ```HTML
       <!-- index.html -->
@@ -216,16 +188,14 @@ Essa ferramenta funciona a partir de **"Módulos"**, para quem já está acostum
     > Dentro do nosso **package.json** vamos adicionar os scripts:
     >
     > - **build:dev**: Servirá como uma forma de usar o webpack apenas no ambiente de desenvolvimento, ou seja, será utilizado apenas quando estivermos realizando a manutenção, correção de bugs ou novas features.
-    >   <br>  
+    >     
     >    Nesse modo, o arquivo final não é minificado e apenas remove o que não é necessário, diminuindo um pouco o tamanho do arquivo, por isso é a opção de desenvolvimento.
-    >   <br>
+    >   
     >   Sua sintaxe possui a **flag -w**, servindo como uma maneira de refazr o processo de build toda vez que atualizar o arquivo, parecido com o **Nodemon do NodeJS**.
     >   <br>
     > - **build:prod**: Será utilizado para upar o arquivo para a produção, ele irá gerar o arquivo completamente minificado, bem reduzido e com nome de váriaveis trocadas para otimizar a performace do software.
 
-    Abaixo podemos ver como deveria ficar seu repositório até o momento.
-
-    <br>
+    Abaixo podemos ver como deveria ficar seu repositório até o momento. <br>
 
     <div align="center">
       <img src="https://user-images.githubusercontent.com/82516932/186559704-686165a8-bfef-4080-8b02-ff740499773f.png">
@@ -235,15 +205,13 @@ Essa ferramenta funciona a partir de **"Módulos"**, para quem já está acostum
 
     Agora só precisamos executar os scripts que colocamos no packeage.json e pronto.
 
-    <br>
-
-    - Para desenvolver, executaremos:
+    - Para desenvolver, executaremos: <br>
 
     ```SHELL
     npm run build:dev
     ```
 
-    - E para fazer o deploy, executaremos:
+    - E para fazer o deploy, executaremos: <br>
 
     ```SHELL
     npm run build:prod
