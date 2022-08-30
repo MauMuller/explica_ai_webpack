@@ -18,7 +18,7 @@ Hoje falaremos sobre **Webpack**, um assunto muito importante e daora de ser tra
     - **[Output Point](#output-point-ponto-de-saida)**
     - **[Loaders](#loaders)**
       - **[Babel-loader](#babel-loader-)**
-      - **[Css-loader e Style-loader](#css-loader-style-loader-)**
+      - **[Css-loader e Style-loader](#css-loader-e-style-loader-)**
     - **[Plugins](#plugins)**
       - **[Mini-Css-Extract-Plugin](#mini-css-extract-plugin-)**
 - **[Fontes](#fontes)**
@@ -451,7 +451,7 @@ Essa ferramenta funciona a partir de **"Módulos"**, para quem já está acostum
 
     E agora basta executar os nossos comandos de **build** e pronto, ES6+ convertido para ES5.
 
-    ### CSS-loader e Style-loader 👍
+    ### Css-loader e Style-loader 👍
 
     Assim como eu já havia comentado, é possivel conveter outros formatos de arquivo em JS para que o webpack possa entender. E nesse caso, vamos utilizar o **style-loader** e o **css-loader**.
 
