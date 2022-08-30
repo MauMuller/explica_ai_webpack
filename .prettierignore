@@ -1,7 +1,0 @@
-
-# Ignorar todos arquivos markdown
-./*.md
-./README.md
-
-# ignorar dist main.js
-./dist/main.js

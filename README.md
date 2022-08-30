@@ -14,15 +14,118 @@ Hoje falaremos sobre **Webpack**, um assunto muito importante e daora de ser tra
 - **[Artigo Completo](#artigo-completo)**
   - **[ES Modules](#es-modules)**
   - _Conceitos Fundamentais do Webpack_
-    - **[Entry Point](#entry-point-\(ponto-de-entrada\))**
-    - **[Output Point](#output-point-\(ponto-de-saida\))**
+    - **[Entry Point](#entry-point-ponto-de-entrada)**
+    - **[Output Point](#output-point-ponto-de-saida)**
     - **[Loaders](#loaders)**
+      - **[Babel Loader](#babel-loader)**
+      - **[File Loader](#file-loader)**
+      - **[CSS Loader](#css-loader)**
     - **[Plugins](#plugins)**
+      - **[Mini-Css-Extract-Plugin](#mini-css-extract-plugin)**
 - **[Fontes](#fontes)**
 
 <img id="resumo" src="https://user-images.githubusercontent.com/82516932/186561412-e82b73f2-b819-4b71-bbb0-f1473c9e344c.svg">
 
-<br><br>
+No resumo, irei colocar apenas os arquivos já configurados para agilizar a sua vida caso já tenha lido o artigo ou deseja apenas testar o webpack.
+
+#### Instalação geral
+
+```SHEEL
+npm i -D webpack webpack-cli @babel/core @babel/preset-env babel-loader css-loader style-loader mini-css-extract-plugin
+```
+
+#### Configurações
+
+```JS
+  //packeage.json
+
+  {
+    "name": "testewebpack",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "build:dev": "webpack -w --mode development",
+      "build:prod": "webpack --mode production"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+      "@babel/core": "^7.18.13",
+      "@babel/preset-env": "^7.18.10",
+      "babel-loader": "^8.2.5",
+      "core-js": "^3.25.0",
+      "css-loader": "^6.7.1",
+      "mini-css-extract-plugin": "^2.6.1",
+      "style-loader": "^3.3.1",
+      "webpack": "^5.74.0",
+      "webpack-cli": "^4.10.0"
+    }
+  }
+```
+
+```JS
+  //webpack.config.js
+
+  const path = require('path');
+  const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+  module.exports = {
+    entry: ["./src/index.js"],
+    output: {
+      filename: 'main.js',
+      path: path.resolve(__dirname, 'dist/js')
+    },
+    module: {
+      rules: [
+        {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              cacheDirectory: true,
+              presets: ['@babel/preset-env'],
+            }
+          }
+        },
+        {
+          test: /\.css$/,
+          use: ['style-loader','css-loader']
+        },
+        {
+          test: /\.css$/i,
+          use: [MiniCssExtractPlugin.loader, "css-loader"],
+        },
+      ]
+    },
+
+    plugins: [
+      new MiniCssExtractPlugin({
+        filename: "../css/style.css"
+      })
+    ]
+  };
+```
+
+```JS
+  //babel.config.js
+
+  module.exports = {
+    presets: ['@babel/preset-env']
+  }
+```
+
+#### Arquivos
+
+```JS
+  //index.js
+
+  import './css/style.css';
+```
+
+Lembrando que essas configurações são referentes aos exemplos que fizemos, isso deverá ser adaptado para os arquivos do seu projeto.
 
 <img id="artigo-completo" src="https://user-images.githubusercontent.com/82516932/186561432-62d12540-895b-4a1d-917d-d502ad52fb69.svg">
 
@@ -88,12 +191,18 @@ Essa ferramenta funciona a partir de **"Módulos"**, para quem já está acostum
     - **webpack**: se trata das dependencia do recurso;
     - **webpack-cli**: possibilidade de executar esse webpack por linha de comando.
 
+    <br>
+
     Agora vamos precisar criar um arquivo dentro do nosso repositório chamado **"webpack.config.js"**, nele que iremos adicionar todos os pontos de entrada, sáida, loaders e plugins o quanto for necessário.
+
+    <br>
 
     Além desse arquivo, ainda precisamos criar duas pastas dentro do nosso repositório. Elas representam o caminho padrão que o webpack captura quando não é configurado. São elas:
 
     - **src**: Local onde ficará todos os arquivos .js que iremos trabalhar
     - **dist**: Pasta onde ficará os arquivos de sáida, no caso, o main.js, style.css e outros. Aqui também que será a **refência** que iremos adicionar no **HEAD do HTML**.
+
+    <br>
 
     Dentro dessas pastas, precisamos criar dois arquivos respectivamente, sendo eles:
 
@@ -105,6 +214,8 @@ Essa ferramenta funciona a partir de **"Módulos"**, para quem já está acostum
 
     Agora podemos configurar o arquivo **webpack.config.js** (porém, se não configurassemos, ele iria usar os caminhos que criamos por padrão no projeto, o **"src/index.js"** e **"dist/main.js"**).
 
+    <br>
+
     ```JS
       //webpack.config.js
       module.exports = {
@@ -114,7 +225,11 @@ Essa ferramenta funciona a partir de **"Módulos"**, para quem já está acostum
 
     Aqui nesse exemplo podemos ver como é a sintaxe do arquivo de configuração do webpack, precisamos **exportar o módulo com o entry (ponto de entrada)**, nele passamos um array contendo todos os caminhos que o webpack vai iniciar sua unificação.
 
+    <br>
+
     Nesse exemplo usamos o **'./src/index.js'** e o **'./src/fazerAlgo.js'** para mostrar que é possível ter vários pontos de entrada, eles são arquivos que usamos quando precisamos que dois arquivos não tenham ligação. Mas nesse artigo, usaremos apenas o index.js.
+
+    <br>
 
     Com isso, finalizamos a parte do entry point...
 
@@ -126,13 +241,19 @@ Essa ferramenta funciona a partir de **"Módulos"**, para quem já está acostum
 
     Aqui ficará todo o código dos módulos importados, incluindo a trasnpilação com o babel e importação de apenas um tag no HTML para sua utilização.
 
+    <br>
+
     Por padrão, esse arquivo tem o nome de **"main.js"** como sáida, sendo esse um nome de convenção, porém, também é bastante utilizado o **"bundle.js"** como conveção.
+
+    <br>
 
     E assim como o Ponto de Entrada, a saída também pode ter vários arquivos dependendo da sua configuração, mas por padrão, gera apenas um.
 
     ### EXEMPLO
 
     Vamos continuar usando o exemplo anterior, agora, fazeremos a saída desses módulos, para isso, precisaremos **configurar o ponto de saída do webpack.**
+
+    <br>
 
     ```JS
       //webpack.config.js
@@ -152,6 +273,8 @@ Essa ferramenta funciona a partir de **"Módulos"**, para quem já está acostum
     > **Filename:** se trata do nome que o arquivo terá, é importante lembrar que ele será a refêrencia dentro do HTML como arquivo unificado.
     >
     > **Path:** Trata-se do caminho absoluto até a pasta que desejamos, esse path faz o papel de direcionar ao webpack em qual pasta iremos querer a sáida do arquivo final.
+
+    <br>
 
     Com esse arquivo configurado, precisamos criar um outro arquivo, agora em HTML. Ele será nosso **index.html**, arquivo que terá a referência do nosso **main.js**.
 
@@ -188,11 +311,12 @@ Essa ferramenta funciona a partir de **"Módulos"**, para quem já está acostum
     > Dentro do nosso **package.json** vamos adicionar os scripts:
     >
     > - **build:dev**: Servirá como uma forma de usar o webpack apenas no ambiente de desenvolvimento, ou seja, será utilizado apenas quando estivermos realizando a manutenção, correção de bugs ou novas features.
-    >     
-    >    Nesse modo, o arquivo final não é minificado e apenas remove o que não é necessário, diminuindo um pouco o tamanho do arquivo, por isso é a opção de desenvolvimento.
-    >   
+    >
+    >   Nesse modo, o arquivo final não é minificado e apenas remove o que não é necessário, diminuindo um pouco o tamanho do arquivo, por isso é a opção de desenvolvimento.
+    >
     >   Sua sintaxe possui a **flag -w**, servindo como uma maneira de refazr o processo de build toda vez que atualizar o arquivo, parecido com o **Nodemon do NodeJS**.
     >   <br>
+    >
     > - **build:prod**: Será utilizado para upar o arquivo para a produção, ele irá gerar o arquivo completamente minificado, bem reduzido e com nome de váriaveis trocadas para otimizar a performace do software.
 
     Abaixo podemos ver como deveria ficar seu repositório até o momento. <br>
@@ -203,7 +327,11 @@ Essa ferramenta funciona a partir de **"Módulos"**, para quem já está acostum
 
     > **Não há problema nenhum se estiver um pouco diferente**, o importante é entender o que foi feito para chegarmos aqui.
 
+    <br>
+
     Agora só precisamos executar os scripts que colocamos no packeage.json e pronto.
+
+    <br>
 
     - Para desenvolver, executaremos: <br>
 
@@ -221,14 +349,16 @@ Essa ferramenta funciona a partir de **"Módulos"**, para quem já está acostum
 
     ***
 
-    - ## Loaders    
+    - ## Loaders
 
     <div align="center">
       <img src="https://user-images.githubusercontent.com/82516932/186047057-ade3f86a-eaa0-4d09-99a4-21a2f05e6d62.svg">
     </div>
 
     São **módulos instalados separadamente** do Webpack, como arquivos que não sejam Javascript. Isso acontece por que por padrão o webpack não entende nenhum arquivo que não seja .js, mas com esses plugins que é possível fazer isso.
-    
+
+    <br>
+
     Esses loaders serão compilados e transformados em arquivos que o webpack entenda, realizando assim, a ideia inicial de poder unificar arquivos. No geral, eles trabalham juntamente com os plugins, gerando assim inumeras possíbilidades para o desenvolvimento da aplicação.
 
     No geral, podemos separar os loaders em subcategorias:
@@ -236,24 +366,262 @@ Essa ferramenta funciona a partir de **"Módulos"**, para quem já está acostum
     - Arquivos (.jpg, .png...)
     - Transpiling (ES5, .jsx, .vue, .ts...)
     - Styling (.css, .scss...)
-          
-    ### EXEMPLO
+
+    Agora vamos entrar em alguns exemplos das quais iremos mostrar.
 
     Usaremos os determinados loaders nesse exemplo:
+
     - Arquivos: <strong>"url-loader"</strong>, <strong>"file-loader"</strong>;
     - Transpiling: <strong>"babel-loader"</strong>;
     - Styling: **"style-loader"**, **"css-loader"**.
 
+    Então, vamos começar com o nossos loaders, primeiro, vamos começar com o **Babel**.
+
+    #### Babel-loader 👍
+
+    Ele é responsavel por converter nosso código ES6+ em ES5, sendo útil quando algum recurso não é suportado pelo browser.
+
+    Primeiro, devemos fazer sua instalação:
+
+    ```SHELL
+    npm i -D @babel/core @babel/preset-env babel-loader
+    ```
+
+    > Leve resumo do que se trata cada um deles:
+    >
+    > - **@babel/core**: se trata do Babel em si;
+    > - **@babel/preset-env**: é um plugin necessário para que o babel faça essa transpilação para ES5, pois ele sozinho, não tem essa capacidade;
+    > - **babel-loader**: serve para ser usado como loader do webpack, ou seja, dois dois em conjunto;
+
+    Depois de instalado, necessitamos criar um arquivo na raiz do nosso prjeto chamado **babel.config.js**, ele será necessário para incluirmos o plugin de transpilação que acabos de instalar.
+
+    ```JS
+    //babel.config.js
+
+    modules.exports = {
+      presets: ['@babel/preset-env']
+    }
+    ```
+
+    Com isso, precisamos agora configurar o loader dentro do arquivo do webapack, para que toda vez que seja compilado o bundle, sejá transpilado para ES5.
+
+    ```JS
+    //webpack.config.js
+
+    const path = require('path');
+
+    module.exports = {
+      entry: ["./src/index.js"],
+      output: {
+        filename: 'main.js',
+        path: path.resolve(__dirname, 'dist/js')
+      },
+      module: {
+        rules: [
+          {
+            test: /\.js$/,
+            exclude: /node_modules/,
+            use: {
+              loader: 'babel-loader',
+              options: {
+                cacheDirectory: true,
+                presets: ['@babel/preset-env']
+              }
+            }
+          },
+        ]
+      }
+    };
+    ```
+
+    Nesse arquivo podemos ver que o **entry** e o **output**, foram os que já fizemos nos exemplos anteriores, só estamos reaproveitando eles aqui. Porém agora temos um novo item, o **module**.
+
+    Dentro do **module** que configuramos nossos loaders e dentro dele podemos ter várias **rules (regras) diferentes para cada loader**.
+
+    > Dentro do nosso _rules_, temos três itens importantes de serem comentados.
+    >
+    > - **test**: serve para fazer um teste em todos os arquivos, aqui colocamos um RegExp procurando por todos os arquivos com ".js" no final.
+    > - **exclude**: Já aqui, estamos excluindo a pasta node_modules pois não queremos que ela seja renderizada.
+    > - **use**: E aqui sim estamos utilizando o loader.
+
+    Por fim, nosso arquivo deverá ficar parecido com isso
+
+    <div align="center">
+      <img src="https://user-images.githubusercontent.com/82516932/187085465-3684d128-ef08-471a-b31b-2a00df7d54f3.png" alt="Imagem exemplo">
+    </div>
+
+    E agora basta executar os nossos comandos de **build** e pronto, ES6+ convertido para ES5.
+
+    #### CSS-loader e Style-loader 👍
+
+    Assim como eu já havia comentado, é possivel conveter outros formatos de arquivo em JS para que o webpack possa entender. E nesse caso, vamos utilizar o **style-loader** e o **css-loader**.
+
+    Primeiro vamos instalar ambos:
+
+    ```SHELL
+    npm i -D css-loader style-loader
+    ```
+
+    Mais a fundo de cada um deles:
+
+    > - **css-loader**: Lê o arquivo CSS e armazena em uma variavel em forma de string.
+    > - **style-loader**: injeta essa variavel dentro do html da página usando a tag _style_.
+
+    Agora, devemos configurar o mesmo dentro do **webpack.config.js**.
+
+    ```js
+    //webpack.config.js
+
+    const path = require("path");
+
+    module.exports = {
+      entry: ["./src/index.js"],
+      output: {
+        filename: "main.js",
+        path: path.resolve(__dirname, "dist/js"),
+      },
+      module: {
+        rules: [
+          {
+            test: /\.js$/,
+            exclude: /node_modules/,
+            use: {
+              loader: "babel-loader",
+              options: {
+                cacheDirectory: true,
+                presets: ["@babel/preset-env"],
+              },
+            },
+          },
+          {
+            test: /\.css$/,
+            use: ["style-loader", "css-loader"],
+          },
+        ],
+      },
+    };
+    ```
+
+    Usamos o exemplo anterior do babel e também, do css agora com esse novo **teste** e o **use**. Isso vai se aplicar para todos loader que quiser adicionar.
+
+    <br>
+
+    Agora vamos precisar gerar o **bundle** do arquivo.
+
+    Para isso, precisaremos de um arquivo css para fazermos o teste.
+
+    ```CSS
+    /* css/style.css */
+
+    body{
+      background-color: #FF0000; /* RED */
+    }
+    ```
+
+    Agora precisamos apenas importar esse arquivo para dentro do nosso index.js e pronto, basta executar nossos comandos de **build** que o css estará incluido na pagina.
+
+    ```JS
+    //index.js
+
+    import './css/style.css';
+    ```
+
+    > OBS: Com esse loader, o css fica dentro do body, mas o ideal era usar ele como um arquivo externo, por isso, precisaremos de um _plugin_ para manter ele em um outro arquivo.
+    >
+    > Vamos falar sobre ele no próximo exemplo.
+
     <hr>
 
-    - ## Plugins 
+    - ## Plugins
 
+    <div align="center">
+      <img src="https://user-images.githubusercontent.com/82516932/187091949-3891be58-287f-4a67-8c2e-f642129ab209.png">
+    </div>
+
+    Plugins expõe pontos específicos do empacotamento, ou seja, alteram alguma parte do processo do webpack, adicionando ou altereando alguma tarefa.
+
+    Agora que entendemos um pouco do funcionamento, vamos a um exemplo disso.
+
+    #### Mini-Css-Extract-Plugin 👍
+
+    Agora vamos utilizar um plugin bem legal que já comentei no assunto anterior. Vamos utilizar o **mini-CSS-extract-plugin**
+
+    ele fará a extração do css para arquivos separados.
+
+    Vamos fazer a instalação entao:
+
+    ```SHELL
+    npm i -D mini-css-extract-plugin
+    ```
+
+    E agora vamos configurar dentro do webapack:
+
+    ```JS
+    //webpack.config.js
+
+    const path = require('path');
+
+    const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+    module.exports = {
+      entry: ["./src/index.js"],
+      output: {
+        filename: 'main.js',
+        path: path.resolve(__dirname, 'dist/js')
+      },
+      module: {
+        rules: [
+          {
+            test: /\.js$/,
+            exclude: /node_modules/,
+            use: {
+              loader: 'babel-loader',
+              options: {
+                cacheDirectory: true,
+                presets: ['@babel/preset-env'],
+              }
+            }
+          },
+          {
+            test: /\.css$/,
+            use: ['style-loader','css-loader']
+          },
+          {
+            test: /\.css$/i,
+            use: [MiniCssExtractPlugin.loader, "css-loader"],
+          },
+        ]
+      },
+
+      plugins: [
+        new MiniCssExtractPlugin({
+          filename: "../css/style.css"
+        })
+      ]
+    };
+    ```
+
+    > Percebe que agora além de adicionar um loader, criamos uma chave chamada plugins contendo a classe **MiniCssExtractPlugins**?
+    >
+    > Exatamente, essa é uma das partes do plugin, onde, dentro do objeto, devemos colocar o nome do arquivo que conterá o css que iremos utilizar no projeto.
+    >
+    > Já no **test** temos a caotura do arquivos css e a utilização do plugin juntamente com o css-loader que utilizamos.
+
+    Agora, basta estar com o css importado no **index.js** e rodar a aplicação que o css estará completamente separado.
+
+    #### Porém, existem diversos plugins...
+
+    Devemos ter em mente que existem inumeras possibilidades, nesse exemplo, mostrei apenas uma delas e a que eu mais curto de usar.
+
+    Mas, por fim, terminamos o webpack, finalizando assim todos os conceitos!
+
+    Até um próximo artigo, valeu 😎.
     <hr>
 
     <img id="fontes" src="https://user-images.githubusercontent.com/82516932/185760260-92710eef-ae41-449e-a023-9f10b6011b13.svg">
 
     - **Web Dev Drops:**
-    <u>https://www.webdevdrops.com/webpack-sem-medo-parte-2-loaders-1d1239df3945/</u>
-    
+      <u>https://www.webdevdrops.com/webpack-sem-medo-parte-2-loaders-1d1239df3945/</u>
+
     - **Blog Fellyph:**
-    <u>https://blog.fellyph.com.br/javascript/introducao-webpack-parte-2-loaders/</u>
+      <u>https://blog.fellyph.com.br/javascript/introducao-webpack-parte-2-loaders/</u>
