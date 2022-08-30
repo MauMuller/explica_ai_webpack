@@ -17,11 +17,10 @@ Hoje falaremos sobre **Webpack**, um assunto muito importante e daora de ser tra
     - **[Entry Point](#entry-point-ponto-de-entrada)**
     - **[Output Point](#output-point-ponto-de-saida)**
     - **[Loaders](#loaders)**
-      - **[Babel Loader](#babel-loader)**
-      - **[File Loader](#file-loader)**
-      - **[CSS Loader](#css-loader)**
+      - **[Babel-loader](#babel-loader-)**
+      - **[Css-loader e Style-loader](#css-loader-style-loader-)**
     - **[Plugins](#plugins)**
-      - **[Mini-Css-Extract-Plugin](#mini-css-extract-plugin)**
+      - **[Mini-Css-Extract-Plugin](#mini-css-extract-plugin-)**
 - **[Fontes](#fontes)**
 
 <img id="resumo" src="https://user-images.githubusercontent.com/82516932/186561412-e82b73f2-b819-4b71-bbb0-f1473c9e344c.svg">
@@ -377,7 +376,7 @@ Essa ferramenta funciona a partir de **"Módulos"**, para quem já está acostum
 
     Então, vamos começar com o nossos loaders, primeiro, vamos começar com o **Babel**.
 
-    #### Babel-loader 👍
+    ### Babel-loader 👍
 
     Ele é responsavel por converter nosso código ES6+ em ES5, sendo útil quando algum recurso não é suportado pelo browser.
 
@@ -452,7 +451,7 @@ Essa ferramenta funciona a partir de **"Módulos"**, para quem já está acostum
 
     E agora basta executar os nossos comandos de **build** e pronto, ES6+ convertido para ES5.
 
-    #### CSS-loader e Style-loader 👍
+    ### CSS-loader e Style-loader 👍
 
     Assim como eu já havia comentado, é possivel conveter outros formatos de arquivo em JS para que o webpack possa entender. E nesse caso, vamos utilizar o **style-loader** e o **css-loader**.
 
@@ -542,7 +541,7 @@ Essa ferramenta funciona a partir de **"Módulos"**, para quem já está acostum
 
     Agora que entendemos um pouco do funcionamento, vamos a um exemplo disso.
 
-    #### Mini-Css-Extract-Plugin 👍
+    ### Mini-Css-Extract-Plugin 👍
 
     Agora vamos utilizar um plugin bem legal que já comentei no assunto anterior. Vamos utilizar o **mini-CSS-extract-plugin**
 
